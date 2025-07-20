@@ -5,7 +5,6 @@
       <p class="text-muted-foreground mt-2">อัปเดตความรู้เรื่องสินเชื่อ บ้าน รถ การเงินส่วนบุคคล และอื่นๆ</p>
     </div>
 
-    <!-- Article List -->
     <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       <ArticleCard v-for="article in articles" :key="article.id" :article="article" />
     </div>

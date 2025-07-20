@@ -80,7 +80,6 @@ const isLoggedIn = computed(() => !!user.value);
     </div>
   </header>
 
-  <!-- Mobile Navigation -->
   <div v-if="isMenuOpen" class="md:hidden px-6 pb-4">
     <nav class="flex flex-col gap-2 text-sm font-medium">
       <NuxtLink

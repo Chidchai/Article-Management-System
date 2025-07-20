@@ -1,7 +1,6 @@
 <template>
   <section class="w-full py-16">
     <div class="max-w-6xl mx-auto px-4 text-center space-y-12">
-      <!-- Hero Section -->
       <div>
         <h1 class="text-4xl font-bold tracking-tight">บทความวิเคราะห์การเงินและสินเชื่อ อ่านง่าย ใช้ได้จริง</h1>
         <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">
@@ -14,7 +13,6 @@
         </div>
       </div>
 
-      <!-- Features -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card>
           <CardHeader>

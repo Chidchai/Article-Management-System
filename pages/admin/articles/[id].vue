@@ -14,8 +14,8 @@ const route = useRoute();
 const article = ref(null);
 
 onMounted(async () => {
-  const id = route.params.id;
-  const res = await $fetch(`/api/articles/${id}`);
-  article.value = res;
+  // const id = route.params.id;
+  // const res = await $fetch(`/api/articles/${id}`);
+  //article.value = res;
 });
 </script>
