@@ -1,38 +1,39 @@
 <template>
   <section class="w-full py-16">
-    <div class="max-w-6xl mx-auto px-4 text-center space-y-10">
+    <div class="max-w-6xl mx-auto px-4 text-center space-y-12">
       <!-- Hero Section -->
       <div>
-        <h1 class="text-4xl font-bold tracking-tight">เปรียบเทียบสินเชื่อได้ง่ายๆ ในไม่กี่คลิก</h1>
-        <p class="text-gray-500 mt-4 max-w-xl mx-auto">ระบบช่วยคำนวณและเปรียบเทียบสินเชื่ออย่างละเอียด พร้อมตารางและกราฟแบบมืออาชีพ</p>
-        <div class="mt-6 space-x-4">
-          <NuxtLink to="/calculator">
-            <Button>เริ่มคำนวณ</Button>
-          </NuxtLink>
-          <NuxtLink to="/comparison" variant="outline">
-            <Button variant="outline">เปรียบเทียบสินเชื่อ</Button>
+        <h1 class="text-4xl font-bold tracking-tight">บทความวิเคราะห์การเงินและสินเชื่อ อ่านง่าย ใช้ได้จริง</h1>
+        <p class="text-muted-foreground mt-4 max-w-2xl mx-auto">
+          คลังบทความความรู้เกี่ยวกับสินเชื่อบ้าน รถ วางแผนหนี้ และการเงินส่วนบุคคล พร้อมกราฟและตารางประกอบ เข้าใจง่ายในไม่กี่นาที
+        </p>
+        <div class="mt-6">
+          <NuxtLink to="/blog">
+            <Button size="lg">เริ่มอ่านบทความ</Button>
           </NuxtLink>
         </div>
       </div>
 
-      <!-- Feature Highlights -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+      <!-- Features -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Card>
           <CardHeader>
-            <CardTitle>คำนวณสินเชื่อทันที</CardTitle>
-            <CardDescription> ป้อนข้อมูลไม่กี่ขั้นตอน รู้ผลทันทีแบบละเอียด </CardDescription>
+            <CardTitle>สรุปเนื้อหาเข้าใจง่าย</CardTitle>
+            <CardDescription> ทุกบทความถูกเขียนโดยใช้ภาษาที่เข้าถึงได้ พร้อมสรุปจุดสำคัญให้อ่านรวดเร็ว </CardDescription>
           </CardHeader>
         </Card>
+
         <Card>
           <CardHeader>
-            <CardTitle>เปรียบเทียบหลายรายการ</CardTitle>
-            <CardDescription> เลือกสินเชื่อหลายแบบ เปรียบเทียบ side-by-side </CardDescription>
+            <CardTitle>มีตารางและกราฟช่วยวิเคราะห์</CardTitle>
+            <CardDescription> บทความที่ซับซ้อนจะมีแผนภาพ เช่น Pie, Line และ Bar Charts เพื่อช่วยเข้าใจ </CardDescription>
           </CardHeader>
         </Card>
+
         <Card>
           <CardHeader>
-            <CardTitle>แสดงผลกราฟสวยงาม</CardTitle>
-            <CardDescription> รองรับ Pie / Line / Bar Charts เพื่อวิเคราะห์ง่ายขึ้น </CardDescription>
+            <CardTitle>ค้นหาและกรองหมวดหมู่ได้</CardTitle>
+            <CardDescription> เลือกดูเฉพาะบทความสินเชื่อบ้าน รถ การเงินส่วนบุคคล หรือบทความยอดนิยม </CardDescription>
           </CardHeader>
         </Card>
       </div>

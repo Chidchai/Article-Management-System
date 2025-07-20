@@ -9,7 +9,9 @@ import { useColorMode } from "@vueuse/core";
 
 const isMenuOpen = ref(false);
 const theme = useThemeStore();
-const { logout } = useAuth();
+const { logout, user } = useAuth();
+
+const isLoggedIn = computed(() => !!user.value);
 </script>
 
 <template>
@@ -18,7 +20,7 @@ const { logout } = useAuth();
       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 fill-black" viewBox="0 0 24 24">
         <path d="M5 3h14a2 2 0 0 1 2 2v3H3V5a2 2 0 0 1 2-2Zm16 7H3v9a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-9Zm-9 8H6v-2h6v2Zm0-4H6v-2h6v2Z" />
       </svg>
-      <span class="font-bold text-lg">LoanCompare</span>
+      <span class="font-bold text-lg">Article Management System</span>
     </div>
     <nav class="hidden md:flex items-center gap-6 text-sm font-medium relative">
       <NuxtLink
@@ -26,21 +28,31 @@ const { logout } = useAuth();
         class="relative pb-2 font-medium"
         exact-active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full after:transition-all after:duration-300"
       >
-        Home
+        หน้าแรก
       </NuxtLink>
       <NuxtLink
-        to="/calculator"
+        to="/blog"
         class="relative pb-2 font-medium"
         active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full after:transition-all after:duration-300"
       >
-        Calculators
+        บทความทั้งหมด
       </NuxtLink>
       <NuxtLink
-        to="/comparison"
+        v-if="isLoggedIn"
+        to="/admin/dashboard"
         class="relative pb-2 font-medium"
         active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full after:transition-all after:duration-300"
       >
-        Comparison
+        Dashboard
+      </NuxtLink>
+
+      <NuxtLink
+        v-if="isLoggedIn"
+        to="/admin"
+        class="relative pb-2 font-medium"
+        active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full after:transition-all after:duration-300"
+      >
+        จัดการบทความ
       </NuxtLink>
     </nav>
 
@@ -51,7 +63,12 @@ const { logout } = useAuth();
         <span class="sr-only">Theme ({{ theme.current }})</span>
       </Button>
 
-      <Button variant="outline" @click="logout">Logout </Button>
+      <div class="flex items-center" v-if="isLoggedIn">
+        <Button variant="outline" @click="logout">Logout</Button>
+        <span class="text-sm text-gray-600 dark:text-gray-300 ml-4">
+          {{ user?.email }}
+        </span>
+      </div>
     </div>
 
     <div class="md:hidden">
@@ -71,25 +88,34 @@ const { logout } = useAuth();
         class="relative pb-2"
         exact-active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full"
       >
-        Home
+        หน้าแรก
       </NuxtLink>
       <NuxtLink
-        to="/calculator"
+        to="/blog"
         class="relative pb-2"
         active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full"
       >
-        Calculators
+        บทความทั้งหมด
       </NuxtLink>
       <NuxtLink
-        to="/comparison"
+        v-if="isLoggedIn"
+        to="/dashboard"
         class="relative pb-2"
         active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full"
       >
-        Comparison
+        Dashboard
+      </NuxtLink>
+      <NuxtLink
+        v-if="isLoggedIn"
+        to="/admin"
+        class="relative pb-2"
+        active-class="text-primary after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-red-500 after:rounded-full"
+      >
+        จัดการบทความ
       </NuxtLink>
 
-      <div class="mt-2">
-        <Button variant="outline" @click="logout">Logout </Button>
+      <div class="mt-2" v-if="isLoggedIn">
+        <Button variant="outline" @click="logout">Logout</Button>
       </div>
     </nav>
   </div>

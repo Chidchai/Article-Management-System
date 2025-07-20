@@ -48,10 +48,10 @@ export default defineNuxtConfig({
   },
   supabase: {
     redirectOptions: {
-      login: "/login",
+      login: "/admin/login",
       callback: "",
       include: undefined,
-      exclude: ["/register",],
+      exclude: ["/admin/register", "/", "/blog", "/admin", "/admin/dashboard"],
       saveRedirectToCookie: false,
     },
     cookieOptions: {
